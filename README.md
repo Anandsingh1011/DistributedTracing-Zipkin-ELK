@@ -18,7 +18,7 @@ docker run -d -p 9411:9411 openzipkin/zipkin
 
 url -sSL https://zipkin.io/quickstart.sh | bash -s
 
-java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://127.0.0.1:9200 -jar zipkin.jar
+java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://127.0.0.1:9200 -DES_USERNAME=elastic -DES_PASSWORD=changeme -jar zipkin.jar
 
 ## Running our Dockerized ELK
 
@@ -78,4 +78,6 @@ curl -XGET 'localhost:9200/_cat/indices?v&pretty'
 
 
 Now open Kibana and define the new index pattern. Open Kibana at http://localhost:5601, and commence with defining a ‘zipkin*’ index pattern:
+
+
 
