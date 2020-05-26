@@ -20,6 +20,7 @@ url -sSL https://zipkin.io/quickstart.sh | bash -s
 
 java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://127.0.0.1:9200 -DES_USERNAME=elastic -DES_PASSWORD=changeme -jar zipkin.jar
 
+
 ## Running our Dockerized ELK
 
 git clone https://github.com/deviantony/docker-elk.git
@@ -69,6 +70,10 @@ Both services should report the same success message in the run output:
 
 The frontend service can be accessed via http://localhost:8081 and calls the backend service and displays a timestamp.
 
+Open zipkin http://localhost:9411/ it should look like
+
+<img src="zipkin.png">
+
 
 
 
@@ -79,5 +84,10 @@ curl -XGET 'localhost:9200/_cat/indices?v&pretty'
 
 Now open Kibana and define the new index pattern. Open Kibana at http://localhost:5601, and commence with defining a ‘zipkin*’ index pattern:
 
+After creating the index pattern, open the Discover tab and you will be able to see your trace information collected by Zipkin.
 
 
+<img src="elk.png">
+
+
+Using Zipkin and ELK we can analyze the log.
