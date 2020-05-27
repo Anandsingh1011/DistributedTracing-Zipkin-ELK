@@ -24,7 +24,9 @@ java -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://127.0.0.1:9200 -DES_USERNAME
 ## Running our Dockerized ELK
 
 git clone https://github.com/deviantony/docker-elk.git
+
 cd /docker-elk
+
 docker-compose up -d
 
 ### Verifying the installation
